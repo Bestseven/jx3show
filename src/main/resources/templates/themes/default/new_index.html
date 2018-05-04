@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<div th:replace="themes/default/header::header(null,null)"></div> &lt;!&ndash; thymeleaf 布局，在页面任何地方引用replace是替换，include只是加载&ndash;&gt;-->
+<head>
+
+    <meta charset="UTF-8"/>
+    <title>账号列表</title>
+    <!--<link rel="stylesheet" th:href="@{/user/css/bootstrap.css}"></link>-->
+    <!--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <!--<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-RYo6CbRL8rh7rpbkCiH9NYNDn+viHdKTOp1Df1HCOxcq1shtPNZV9s1U/Hot17Qy" crossorigin="anonymous"/>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" />
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</head>
+<body class="container">
+<br/>
+<h1>账号列表</h1>
+<br/><br/>
+<div class="with:80%">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>title</th>
+            <th>status</th>
+            <th>status</th>
+            <th>authorId</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="article : ${articles.list}">
+            <th scope="row" th:text="${article.title}">1</th>
+            <td th:text="${article.status}">neo</td>
+            <td th:text="${article.tags}">Otto</td>
+            <td th:text="${article.authorId}">6</td>
+            <!--<td><a th:href="@{/toEdit(id=${user.id})}">edit</a></td>-->
+            <!--<td><a th:href="@{/delete(id=${user.id})}">delete</a></td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="main-content index-page clearfix">
+<div class="lists-navigator clearfix">
+<div th:replace="comm/macros::pageNav(${articles},'←','→','page')"></div> <!-- thymeleaf 布局，在页面任何地方引用replace是替换，include只是加载-->
+</div>
+</div>
+
+
+<!--<div class="main-content index-page clearfix">-->
+
+    <!--<div class="post-lists">-->
+        <!--<div class="post-lists-body">-->
+            <!--<div class="post-list-item" th:each="article: ${articles.list}"> &lt;!&ndash; th:each 简单的遍历&ndash;&gt;&lt;!&ndash; 变量表达式 &ndash;&gt;-->
+                <!--<div class="post-list-item-container">-->
+                    <!--<a th:href="${commons.permalink(article)}" class="item-thumb  bg-deepgrey"-->
+                       <!--th:style="'background-image:url('+@{${commons.show_thumb(article)}}+');'"> &lt;!&ndash; commons.permalink 方法在类中定义，返回图片地址&ndash;&gt;&lt;!&ndash; 替换样式 &ndash;&gt;&lt;!&ndash; url表达式&ndash;&gt;-->
+                        <!--<dir class="item-desc" th:text="${article.tags}"></dir> &lt;!&ndash; 会让标签鼠标滑动后显示 &ndash;&gt;-->
+                    <!--</a>-->
+                    <!--<div class="item-slant reverse-slant &lt; bg-deepgrey"></div>-->
+                    <!--<div class="item-slant"></div>-->
+                    <!--<div class="item-label">-->
+                        <!--<div class="item-title"><a th:href="${commons.permalink(article)}"-->
+                                                   <!--th:text="${article.title}"></a>&lt;!&ndash; 在框框里显示标题&ndash;&gt;-->
+                        <!--</div>-->
+                        <!--<div class="item-meta clearfix">-->
+                            <!--<div th:class="'item-meta-ico '+ ${commons.show_icon(article.cid)}"-->
+                                 <!--th:style="'background: url('+@{/user/img/bg-ico.png}+');no-repeat;background-size: 40px auto;' "></div>&lt;!&ndash; 设置背景图片&ndash;&gt;-->
+                            <!--<div class="item-meta-cat" th:utext="${commons.show_categories(article.categories)}">&lt;!&ndash; 显示右下角类型，显示分类&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="lists-navigator clearfix">-->
+        <!--<div th:replace="comm/macros::pageNav(${articles},'←','→','page')"></div> &lt;!&ndash; thymeleaf 布局，在页面任何地方引用replace是替换，include只是加载&ndash;&gt;-->
+    <!--</div>-->
+<!--</div>-->
+</body>
+<div th:replace="themes/default/footer::footer"></div> <!-- thymeleaf 布局，在页面任何地方引用replace是替换，include只是加载-->
+</html>
