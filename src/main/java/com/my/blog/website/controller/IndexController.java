@@ -7,19 +7,19 @@ import com.my.blog.website.dto.MetaDto;
 import com.my.blog.website.dto.Types;
 import com.my.blog.website.exception.TipException;
 import com.my.blog.website.modal.Bo.ArchiveBo;
+import com.my.blog.website.modal.Bo.CommentBo;
 import com.my.blog.website.modal.Bo.RestResponseBo;
 import com.my.blog.website.modal.Vo.CommentVo;
+import com.my.blog.website.modal.Vo.ContentVo;
 import com.my.blog.website.modal.Vo.MetaVo;
+import com.my.blog.website.service.ICommentService;
+import com.my.blog.website.service.IContentService;
 import com.my.blog.website.service.IMetaService;
 import com.my.blog.website.service.ISiteService;
+import com.my.blog.website.utils.IPKit;
 import com.my.blog.website.utils.PatternKit;
 import com.my.blog.website.utils.TaleUtils;
 import com.vdurmont.emoji.EmojiParser;
-import com.my.blog.website.modal.Bo.CommentBo;
-import com.my.blog.website.modal.Vo.ContentVo;
-import com.my.blog.website.service.ICommentService;
-import com.my.blog.website.service.IContentService;
-import com.my.blog.website.utils.IPKit;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +60,7 @@ public class IndexController extends BaseController {
      *
      * @return
      */
-    @GetMapping(value = {"/", "index","newIndex"})
+    @GetMapping(value = {"/", "index"})
     public String index(HttpServletRequest request, @RequestParam(value = "limit", defaultValue = "12") int limit) {
         return this.index(request, 1, limit);
     }
@@ -80,9 +80,6 @@ public class IndexController extends BaseController {
         request.setAttribute("articles", articles);
         if (p > 1) {
             this.title(request, "第" + p + "页");
-        }
-        if (request.getRequestURI().equals("/newIndex")){
-            return this.render("new_index");
         }
         return this.render("index");
     }
@@ -224,8 +221,8 @@ public class IndexController extends BaseController {
             if (StringUtils.isNotBlank(url)) {
                 cookie("tale_remember_url", URLEncoder.encode(url, "UTF-8"), 7 * 24 * 60 * 60, response);
             }
-            // 暂时设置对每个文章30s可以评论一次
-            cache.hset(Types.COMMENTS_FREQUENCY.getType(), val, 1, 30);
+            // 暂时设置对每个文章20s可以评论一次
+            cache.hset(Types.COMMENTS_FREQUENCY.getType(), val, 1, 20);
             return RestResponseBo.ok();
         } catch (Exception e) {
             String msg = "评论发布失败";
