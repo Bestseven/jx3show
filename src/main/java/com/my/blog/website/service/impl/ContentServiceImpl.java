@@ -99,11 +99,11 @@ public class ContentServiceImpl implements IContentService {
     public PageInfo<ContentVo> getContents(Integer p, Integer limit) {
         LOGGER.debug(">>>>>>>>>>>>>分页查询开始：第{}页，每页条数{}<<<<<<<<<<<<<<<",p,limit);
         ContentVoExample example = new ContentVoExample();
-        example.setOrderByClause("created desc");
+        example.setOrderByClause("created desc");   //根据创建时间倒叙排序
         example.createCriteria().andTypeEqualTo(Types.ARTICLE.getType()).andStatusEqualTo(Types.PUBLISH.getType());
         PageHelper.startPage(p, limit);
-        List<ContentVo> data = contentDao.selectByExampleWithBLOBs(example);
-        PageInfo<ContentVo> pageInfo = new PageInfo<>(data);
+        List<ContentVo> data = contentDao.selectByExampleWithBLOBs(example);//该方式只有当数据表中的某一列需要存储较大内容时候，才会产生,比如text类型
+        PageInfo<ContentVo> pageInfo = new PageInfo<>(data);//用PageInfo对结果进行封装
         LOGGER.debug(">>>>>>>>>>>>>分页查询结束<<<<<<<<<<<<<<<");
         return pageInfo;
     }
