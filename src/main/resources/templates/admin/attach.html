@@ -59,7 +59,7 @@
                                         <input name="file" type="file" multiple="multiple"/>
                                     </div>
                                     <div class="dz-message">
-                                        将文件拖至此处或点击上传.
+                                        将图片拖至此处或点击上传.
                                     </div>
                                 </form>
                             </div>
@@ -89,7 +89,7 @@
                       th:text="${commons.substr(attach.fname, 12)}"></span>
                                     </div>
                                     <div class="clearfix">
-                                        <button th:attr="url=${commons.site_url(attach.fkey)}" type="button"
+                                        <button th:attr="url=${attach.fkey}" type="button"
                                                 class="btn btn-warning btn-sm waves-effect waves-light m-t-5 copy">
                                             <i class="fa fa-copy"></i> <span>复制</span>
                                         </button>
