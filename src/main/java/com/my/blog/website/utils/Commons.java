@@ -65,6 +65,7 @@ public final class Commons {
 
     /**
      * 在管理员页面退出登录返回到登录界面
+     *
      * @return
      */
     public static String site_login() {
@@ -296,7 +297,7 @@ public final class Commons {
     }
 
     /**
-     * 显示文章缩略图，顺序为：文章第一张图 -> 随机获取
+     *  显示文章缩略图，顺序为：文章第一张图 -> 随机获取
      *
      * @return
      */
@@ -305,21 +306,21 @@ public final class Commons {
         int size = cid % 20;
         size = size == 0 ? 1 : size;
         String content = contents.getContent();
-//
-//        String str = content;
-//        String pattern = "\\[\\d]:\\s/*.*(.png|.jpg)\\b";
-//
-//        Pattern r = Pattern.compile(pattern);
-//        Matcher m = r.matcher(str);
-////        System.out.println(m.matches());
-//        while(m.find()){
-//            System.out.println(m.group(1));
-//        } TODO 不知道为什么正则表达式用不了
+        List<String> list = new ArrayList<>();
         try {
-            String fkey = content.substring(content.indexOf("[1]: ")+5,content.indexOf(".jpg")+4);
+            String str = content;
+            String pattern = "\\[\\d]:\\s/*.*(.png|.jpg)\\b";
 
+            Pattern r = Pattern.compile(pattern);
+            Matcher m = r.matcher(str);
+            while (m.find()) {
+                list.add(m.group());
+            }
+            String sfkey = list.get(0);
+            String fkey = sfkey.substring(5);
             return fkey;
-        }catch (Exception e){
+
+        } catch (Exception e) {
             return "/user/img/rand/" + size + ".jpg";
         }
 
