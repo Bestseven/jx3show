@@ -78,6 +78,7 @@ public class AuthController extends BaseController {
             }
             cache.set("login_error_count", error_count, 10 * 60);
             String msg = "登录失败";
+            LOGGER.error(msg);
             if (e instanceof TipException) {
                 msg = e.getMessage();
             } else {

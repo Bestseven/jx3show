@@ -19,18 +19,18 @@
                     <input type="hidden" name="_csrf_token" th:value="${_csrf_token}"/>
                     <input type="text" name="author" maxlength="12" id="author"
                            class="form-control input-control clearfix"
-                           placeholder="姓名 (*)"
+                           placeholder="昵称"
                     />
                     <input type="email" name="mail" id="mail" class="form-control input-control clearfix"
-                           placeholder="邮箱 (*)"
+                           placeholder="邮箱"
                     />
                     <input type="url" name="url" id="url" class="form-control input-control clearfix"
-                           placeholder="网址 (http://)"
+                           placeholder="网址"
                     />
-                    <textarea name="text" id="textarea" class="form-control" placeholder="以上信息可以为空,评论不能为空哦!"
+                    <textarea name="text" id="textarea" class="form-control" placeholder="✿ヽ(ﾟ▽ﾟ)ノ✿这里输入文字"
                               required="required" minlength="5"
                               maxlength="2000"></textarea>
-                    <button type="submit" class="submit" id="misubmit">提交</button>
+                    <button type="submit" class="submit" id="misubmit">๑•̀ㅂ•๑́回复</button>
                 </form>
             </div>
             <div th:unless="${article.allowComment}">
@@ -46,7 +46,7 @@
                                     <div class="comment-header">
                                         <!--设置get请求的参数-->
                                         <img class="avatar"
-                                             th:src="@{${commons.gravatar(comment.mail)}(s='80',r='G',d='')}"
+                                             th:src="@{${commons.gravatar(comment.author)}(s='80',r='G',d='monsterid')}"
                                              th:title="${comment.author}"
                                              width="80" height="80"/>
                                         <span class="comment-author">

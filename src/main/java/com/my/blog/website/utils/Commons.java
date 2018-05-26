@@ -159,13 +159,16 @@ public final class Commons {
      * @param email
      * @return
      */
-    public static String gravatar(String email) {
+    public static String gravatar(String author) {
         String avatarUrl = "https://secure.gravatar.com/avatar";
-        if (StringUtils.isBlank(email)) {
+        if (StringUtils.isBlank(author)) {
             return avatarUrl;
         }
-        String hash = TaleUtils.MD5encode(email.trim().toLowerCase());
+        String hash = TaleUtils.MD5encode(author.trim().toLowerCase());
         return avatarUrl + "/" + hash;
+//        String avatarUrl = "https://img.crypko.ai/daisy/e6b351b56cf5a688200786531194c800f43bf113_sm.jpg";
+//
+//        return avatarUrl;
     }
 
     /**

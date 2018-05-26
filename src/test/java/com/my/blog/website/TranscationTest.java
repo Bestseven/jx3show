@@ -33,9 +33,9 @@ public class TranscationTest {
     @Ignore
     public void test() {
         UserVo user = new UserVo();
-        user.setUsername("wangqiang111");
+        user.setUsername("1084411897");
         user.setPassword("123456");
-        user.setEmail("8888");
+//        user.setEmail("8888");
         userService.insertUser(user);
         optionService.insertOption("site_keywords", "qwqwq");
     }
