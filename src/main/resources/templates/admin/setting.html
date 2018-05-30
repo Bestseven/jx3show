@@ -12,7 +12,7 @@
                     <div class="col-sm-12">
                         <h4 class="page-title">系统设置</h4>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-color panel-primary">
                             <div class="panel-heading">
                                 <h3 class="panel-title">全局设置</h3>
@@ -41,14 +41,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">博客主题</label>
-                                        <div class="col-md-9">
-                                            <select name="site_theme" class="form-control">
-                                                <option value="default" th:selected="${options.site_theme=='default'}?true:false">默认主题</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <!--<div class="form-group">-->
+                                        <!--<label class="col-md-3 control-label">博客主题</label>-->
+                                        <!--<div class="col-md-9">-->
+                                            <!--<select name="site_theme" class="form-control">-->
+                                                <!--<option value="default" th:selected="${options.site_theme=='default'}?true:false">默认主题</option>-->
+                                            <!--</select>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
 
                                     <input type="hidden" name="allow_install" id="allow_install"/>
                                     <div class="clearfix pull-right">
@@ -61,75 +61,75 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="panel panel-color panel-inverse">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">个性化设置</h3>
-                            </div>
-                            <div class="panel-body">
-                                <form id="indivi-form" class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">微博账号</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="social_weibo" th:value="${options.social_weibo}"
-                                                   placeholder="微博账号，不输入则不显示"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">知乎账号</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="social_zhihu" th:value="${options.social_zhihu}"
-                                                   placeholder="知乎账号，不输入则不显示"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Github账号</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="social_github"
-                                                   th:value="${options.social_github}" placeholder="Github账号，不输入则不显示"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label">Twitter账号</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="social_twitter"
-                                                   th:value="${options.social_twitter}" placeholder="Twitter账号，不输入则不显示"/>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix pull-right">
-                                        <button type="button" class="btn btn-inverse waves-effect waves-light"
-                                                onclick="saveIndiviSetting()">
-                                            保存设置
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                    <!--<div class="col-md-6">-->
+                        <!--<div class="panel panel-color panel-inverse">-->
+                            <!--<div class="panel-heading">-->
+                                <!--<h3 class="panel-title">个性化设置</h3>-->
+                            <!--</div>-->
+                            <!--<div class="panel-body">-->
+                                <!--<form id="indivi-form" class="form-horizontal" role="form">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label class="col-md-3 control-label">qq账号</label>-->
+                                        <!--<div class="col-md-9">-->
+                                            <!--<input type="text" class="form-control" name="social_weibo" th:value="${options.social_weibo}"-->
+                                                   <!--placeholder="微博账号，不输入则不显示"/>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label class="col-md-3 control-label">qq账号</label>-->
+                                        <!--<div class="col-md-9">-->
+                                            <!--<input type="text" class="form-control" name="social_zhihu" th:value="${options.social_zhihu}"-->
+                                                   <!--placeholder="知乎账号，不输入则不显示"/>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label class="col-md-3 control-label">qq账号</label>-->
+                                        <!--<div class="col-md-9">-->
+                                            <!--<input type="text" class="form-control" name="social_github"-->
+                                                   <!--th:value="${options.social_github}" placeholder="Github账号，不输入则不显示"/>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label class="col-md-3 control-label">qq账号</label>-->
+                                        <!--<div class="col-md-9">-->
+                                            <!--<input type="text" class="form-control" name="social_twitter"-->
+                                                   <!--th:value="${options.social_twitter}" placeholder="Twitter账号，不输入则不显示"/>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="clearfix pull-right">-->
+                                        <!--<button type="button" class="btn btn-inverse waves-effect waves-light"-->
+                                                <!--onclick="saveIndiviSetting()">-->
+                                            <!--保存设置-->
+                                        <!--</button>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <div class="clearfix"></div>
+                    <!--<div class="clearfix"></div>-->
 
-                    <div class="col-md-6">
-                        <div class="panel panel-color panel-success">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">系统备份（备份文件包含附件和主题）</h3>
-                            </div>
-                            <div class="panel-body">
-                                <form id="backupForm" class="form-inline" role="form">
-                                    <!--<div class="form-group">
-                                        <label class="sr-only">备份格式</label>
-                                        <input name="url" class="form-control" placeholder="请输入备份文件格式，如yyyy-MM-dd" required="" aria-required="true" type="url">
-                                    </div>-->
-                                    <div class="form-group col-md-6">
-                                        <input id="backup_dir" style="width: 100%;" class="form-control" placeholder="请输入备份存放的磁盘路径" required="" aria-required="true" type="text"/>
-                                    </div>
+                    <!--<div class="col-md-6">-->
+                        <!--<div class="panel panel-color panel-success">-->
+                            <!--<div class="panel-heading">-->
+                                <!--<h3 class="panel-title">系统备份（备份文件包含附件和主题）</h3>-->
+                            <!--</div>-->
+                            <!--<div class="panel-body">-->
+                                <!--<form id="backupForm" class="form-inline" role="form">-->
+                                    <!--&lt;!&ndash;<div class="form-group">-->
+                                        <!--<label class="sr-only">备份格式</label>-->
+                                        <!--<input name="url" class="form-control" placeholder="请输入备份文件格式，如yyyy-MM-dd" required="" aria-required="true" type="url">-->
+                                    <!--</div>&ndash;&gt;-->
+                                    <!--<div class="form-group col-md-6">-->
+                                        <!--<input id="backup_dir" style="width: 100%;" class="form-control" placeholder="请输入备份存放的磁盘路径" required="" aria-required="true" type="text"/>-->
+                                    <!--</div>-->
 
-                                    <button type="button" class="btn btn-success waves-effect waves-light m-l-10" onclick="backup('attach');">备份文件</button>
-                                    <button type="button" class="btn btn-danger waves-effect waves-light m-l-10" onclick="backup('db')">导出数据库SQL</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                                    <!--<button type="button" class="btn btn-success waves-effect waves-light m-l-10" onclick="backup('attach');">备份文件</button>-->
+                                    <!--<button type="button" class="btn btn-danger waves-effect waves-light m-l-10" onclick="backup('db')">导出数据库SQL</button>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
                 </div>
                 <div th:replace="admin/footer :: footer-content"></div>
