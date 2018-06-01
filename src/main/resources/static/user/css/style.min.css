@@ -1622,7 +1622,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     }
 
     .archive-page {
-        padding: 90px 0 20px
+        padding: 90px 0 0px
     }
 
     .common-page {
@@ -1707,7 +1707,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
         width: 100%;
         padding: 10px 20px
     }
-
+    .archive-page .post-list-item {
+        width: 100%;
+        padding: 5px 10px
+    }
     .footer-social {
         display: none
     }
