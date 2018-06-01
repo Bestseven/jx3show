@@ -1716,8 +1716,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     }
 
     .footer-meta .footer-container {
-        height: 70px;
-        padding: 0 15px
+        height: 180px;
+        padding: 0 125px;
     }
 
     .footer-meta .meta-item {
