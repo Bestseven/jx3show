@@ -700,12 +700,12 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     border-radius: 20px;
     background-color: #fff;
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .04)
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .04)
 }
 
 .post-list-item-container:hover {
-    -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, .1);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, .1)
+    -webkit-box-shadow: 8px 8px 16px rgba(0, 0, 0, .3);
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, .3);
 }
 
 .post-list-item-container .item-thumb {
@@ -716,8 +716,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     background-size: cover
 }
 
-.post-list-item-container .item-thumb .item-desc {
-    font-size: 14px;
+.post-list-item-container .item-desc {
+    font-size: 18px;
     position: absolute;
     top: 22%;
     overflow: hidden;
@@ -728,15 +728,14 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     color: #302f2b8a
 }
 
-.post-list-item-container .item-thumb:hover {
-    background-color: #f68e5f;
-    background-image: none !important
+.post-list-item-container:hover .item-thumb {
+    filter: blur(3px);
 }
 
-.post-list-item-container .item-thumb:hover .item-desc {
-    -webkit-animation: fade-in .5s;
+.post-list-item-container:hover .item-desc {
+    -webkit-animation: fade-in 1s;
     animation: fade-in;
-    animation-duration: .5s;
+    animation-duration: 1s;
     opacity: 1
 }
 
