@@ -480,7 +480,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     height: 22px;
     margin-top: -16px;
     margin-left: 25px;
-    text-decoration: none
+    text-decoration: none;
 }
 
 .navbar-logo img {
@@ -645,7 +645,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     border-radius: 3px
 }
 
-.navbar-search form .search-box input {
+.navbar-search form .search-box .input {
     font-size: 14px;
     line-height: 30px;
     position: absolute;
@@ -713,7 +713,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     display: inherit;
     min-height: 250px;
     background-position: 50% 50%;
-    background-size: cover
+    background-size: cover;
+    transition: all 0.5s;
 }
 
 .post-list-item-container .item-desc {
@@ -725,11 +726,12 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     padding: 0 30px;
     word-break: break-all;
     opacity: 0;
-    color: #302f2b8a
+    color: #302f2bd6
 }
 
 .post-list-item-container:hover .item-thumb {
     filter: blur(3px);
+    transform: scale(1.1);
 }
 
 .post-list-item-container:hover .item-desc {
